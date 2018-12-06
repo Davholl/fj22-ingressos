@@ -14,6 +14,7 @@ public class Sessao {
 		this.horario = horario;
 		this.filme = filme;
 		this.sala =sala;
+		System.out.println("tESTE");
 	}
 	
 	public LocalTime getHorarioTermino(){
