@@ -39,6 +39,4 @@ public class Sessao {
 	public LocalTime getHorario(){
 		return horario;
 	}
-
-	
 }
