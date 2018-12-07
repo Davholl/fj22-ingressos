@@ -26,16 +26,20 @@ public class SessaoForm {
 	private Integer filmeId;
 	
 	public Sessao toSessao(SalaDao salaDao, FilmeDao filmeDao){
-		Filme filme = filmeDao.findOne(filmeId);
+		Filme filme = filmeDao.findOne(getFilmeId());
 		Sala sala = salaDao.findOne(getSalaId());
 		
-		Sessao sessao = new Sessao(this.horario, filme, sala);
+		Sessao sessao = new Sessao(this.getHorario(), filme, sala);
 		
 		return sessao;
 	}
 
 	public Integer getId() {
 		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Integer getSalaId() {
@@ -45,5 +49,25 @@ public class SessaoForm {
 	public void setSalaId(Integer salaId) {
 		this.salaId = salaId;
 	}
+
+	public LocalTime getHorario() {
+		return horario;
+	}
+
+	public void setHorario(LocalTime horario) {
+		this.horario = horario;
+	}
+
+	public Integer getFilmeId() {
+		return filmeId;
+	}
+
+	public void setFilmeId(Integer filmeId) {
+		this.filmeId = filmeId;
+	}
+
+	
+
+	
 
 }
