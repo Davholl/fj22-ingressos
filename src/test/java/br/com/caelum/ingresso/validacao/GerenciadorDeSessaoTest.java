@@ -54,6 +54,14 @@ public class GerenciadorDeSessaoTest {
 	}
 	
 	@Test
+	public void garante_que_nao_deve_permitir_sessoes_iniciando_logo_apos_o_inicio_da_ultima(){
+		List<Sessao> sessoesDaSala = Arrays.asList(sessaoDasDezoito);
+		GerenciadorDeSessao gerenciador = new GerenciadorDeSessao(sessoesDaSala);
+		Sessao sessao = new Sessao(sessaoDasDezoito.getHorario().plusMinutes(2), rogueOne, sala3D);
+		Assert.assertFalse(gerenciador.cabe(sessao));
+	}
+	
+	@Test
 	public void garanteQueDevePermitirUmaInsercaoEntreDoisFilmes(){
 		List<Sessao> sessoes = Arrays.asList(sessaoDasDez, sessaoDasDezoito);
 		GerenciadorDeSessao gerenciador = new GerenciadorDeSessao(sessoes);
